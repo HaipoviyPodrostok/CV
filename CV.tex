@@ -1,83 +1,125 @@
-\documentclass[11pt,a4paper, sans]{moderncv}
-
-% Настройки пакетов
-\usepackage[scale=0.85]{geometry}
+\documentclass[a4paper,12pt]{article}
+\usepackage[top=1.5cm, bottom=1.5cm, left=1cm, right=1cm]{geometry}
+\usepackage{cmap}
+\usepackage{mathtext}
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[english,russian]{babel}
 \usepackage{xcolor}
-\usepackage{enumitem}
+\usepackage{tabularx}
 \usepackage{fontawesome5}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{parskip}
 \usepackage{graphicx}
-\usepackage{cmap}
-\usepackage{cmbright}
-\usepackage{lettrine}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{xhfill}
 
-% Цветовая схема
-\definecolor{primary}{RGB}{0, 100, 0} % тёмно-зелёный
-\definecolor{secondary}{RGB}{34, 139, 34} % лесной зелёный
-\definecolor{accent}{RGB}{50, 205, 50} % лаймовый
+\setlist[itemize]{topsep=0pt, partopsep=0pt, parsep=0pt, itemsep=0pt}
 
-% Стиль CV
-\moderncvstyle{banking}
-\moderncvcolor{green}
-\renewcommand{\familydefault}{\sfdefault}
+\definecolor{primary}{RGB}{47,72,88}
+\definecolor{secondary}{RGB}{127,140,141}
+\definecolor{accent}{RGB}{231,76,60}
 
-% Настройка полей
-\setlength{\hintscolumnwidth}{2.5cm}
-
-% Кастомные команды
-\newcommand{\cvproject}[4]{
-    \cvitem{#1}{\textbf{#2}\hfill\href{#3}{\color{secondary}\faLink}\\
-    \begin{minipage}[t]{\linewidth}\small\color{gray}#4\end{minipage}}
-}
-
-%===================================================================================================
-% Основная информация
-%===================================================================================================
-
-\name{Куртеев}{Александр}
-\title{Студент 2 курса ФРКТ МФТИ}
-\address{Москва, Россия}
-\phone[mobile]{+7 (952) 400-66-39}
-\email{kurteev.am@phystech.edu}
-\social[github]{HaipoviyPodrostok}
-\social[telegram]{@Ryan\_gosling123456}
+\titleformat{\section}[block]
+  {\color{primary}\normalfont\Large\bfseries}
+  {}
+  {0pt}
+  {}
+  [\vspace{0em}\titlerule]
+\titlespacing*{\section}{0pt}{1em}{0.5em}
 
 \begin{document}
 
-\begin{minipage}{0.2\textwidth}
-    \includegraphics[width=90pt]{portret.png}
-\end{minipage}% 
-\begin{minipage}{0.8\textwidth}
-    \makecvtitle
+\begin{minipage}{0.7\textwidth}
+{\Huge\textbf{\color{primary}Александр Куртеев}} \\
+{\Large\textcolor{secondary}{Студент 2 курса ФРКТ МФТИ}}
+\end{minipage}
+\begin{minipage}{0.3\textwidth}
+\hfill
+\fbox{\begin{minipage}{3.5cm}
+\centering
+\includegraphics[width=3.5cm]{portret.png} 
+\end{minipage}}
 \end{minipage}
 
-\section{\color{primary}\faGraduationCap\ Образование}
-\cventry{2024--н.в.}{Бакалавриат}{МФТИ (ФРКТ)}{}{}{
-\begin{itemize}[leftmargin=*,nosep]
-    \item Прикладная математика и физика
-\end{itemize}}
+\section{Контакты}
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\faPhone\ & +7 (952) 400-66-39 \\
+\faTelegram\ & \href{https://t.me/Ryan_gosling123456}{@Ryan\_gosling123456} \\
+\faEnvelope\ & kurteev.am@phystech.edu \\
+\faMapMarker\ & Москва, Россия \\
+\faGithub\ & \href{https://github.com/HaipoviyPodrostok}{HaipoviyPodrostok} \\
+\end{tabularx}
 
-\section{\color{primary}\faCode\ Проекты}
-\cvproject{Ноябрь 2026}{Графическая библиотека для пересечения треугольников}{https://github.com/HaipoviyPodrostok/Triangles}{
-Реализация графической библиотеки для ускорения поиска пересечений лучей с треугольниками на C++. Реализация алгоритма LBVH с применением кодов Мортона. Поддержка гетерогенных вычислений: многопоточность на CPU и аппаратное ускорение на GPU посредством OpenCL.}
+\vspace{1.25em}
 
-\cvproject{Сентябрь 2026}{Алгоритм кэширования 2Q}{https://github.com/HaipoviyPodrostok/Cache}{
-Реализация алгоритма 2Q кэша на языке C++. Разработка эталонной модели (Ideal Cache) для сравнительного анализа эффективности алгоритмов на основе метрики попаданий (cache hits). Организация системы сборки через CMake и автоматизированного тестирования с использованием CTest.}
+\section{Образование}
+\begin{itemize}[label={},leftmargin=0pt]
+    \item \textbf{\color{primary}Московский физико-технический институт (МФТИ)} 
+    \item Факультет радиотехники и компьютерных технологий (ФРКТ)
+    \item Бакалавриат --- Прикладная математика и физика \hfill \textcolor{secondary}{2024--н.в.}
+\end{itemize}
 
-\cvproject{Февраль 2025}{Игра "Акинатор"}{https://github.com/HaipoviyPodrostok/Akinator}{
-Консольная реализация игры "Акинатор" на языке C, в которой программа пытается угадать задуманного вами персонажа или предмет, задавая вопросы, на которые можно ответить "да" или "нет". Проект использует Бинарное дерево для хранения базы знаний. Обучение (добавление новых персонажей) происходит прямо во время игры.}
+\vspace{1.25em}
 
-\cvproject{Декабрь 2026}{Прототип очков дополненной реальности}{https://github.com/HaipoviyPodrostok/Prompter-glasses}{
-Рабочий функциональный прототип очков дополненной реальности. В данной реализации используются как очки-телесуфлеры. Очки-суфлёры — устройство, которое позволяет читать заготовленный текст. Текст проецируется на полупрозрачное зеркало и становится доступным для прочтения только для пользователя. Это решает проблему мобильности студийных телесуфлеров.}
+\section{Навыки}
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+    \textbf{\color{primary} Программирование}  &   C/C++23, OpenCL, Python, \LaTeX\\
+    \textbf{\color{primary} Инструменты}     &   Git, Linux, Make/CMake, matplotlib, GDB \\
+    \textbf{\color{primary} Инженерия}      &   Fusion 360, SolidWorks, черчение, работа с лазерным станком, 3D-принтером, пайка \\
+    \textbf{\color{primary} Языки}          &   Английский (B2), Русский (родной) \\
+\end{tabularx}
 
-\section{\color{primary}\faCogs\ Навыки}
-\begin{itemize}[leftmargin=*,nosep]
-    \item \textbf{Языки программирования}: C/C++, OpenCL, \LaTeX.
-    \item \textbf{Инструменты}: Git, Linux, Make/CMake, matplotlib, HTML/CSS, GDB.
-    \item \textbf{Инженерия}: Fusion 360, SolidWorks, черчение, работа с лазерным станком, 3D-принтером, пайка, обработка материалов.
-    \item \textbf{Языки}: Английский (B2), Русский (родной).
+\vspace{1.25em}
+
+\section{Проекты}
+
+\href{https://github.com/HaipoviyPodrostok/Triangles} {\textbf{\color{primary} Графическая библиотека для пересечения треугольников}} \faGithub
+\hfill \textcolor{secondary}{C++23, OpenCL, CMake}
+\begin{itemize}
+\item Реализация графической библиотеки для ускорения поиска пересечений лучей с треугольниками.
+\item Реализация алгоритма LBVH с применением кодов Мортона. Поддержка гетерогенных вычислений: многопоточность на CPU и аппаратное ускорение на GPU посредством OpenCL.
+\end{itemize}
+
+\vspace{1.25em}
+
+\href{https://github.com/HaipoviyPodrostok/Cache} {\textbf{\color{primary} Алгоритм кэширования 2Q}} \faGithub
+\hfill \textcolor{secondary}{C++23, CMake, CTest}
+\begin{itemize}
+\item Реализация алгоритма 2Q кэша. Разработка эталонной модели (Ideal Cache) для сравнительного анализа эффективности алгоритмов на основе метрики попаданий.
+\item Организация системы сборки через CMake и автоматизированного тестирования.
+\end{itemize}
+
+\vspace{1.25em}
+
+\href{https://github.com/HaipoviyPodrostok/Prompter-glasses} {\textbf{\color{primary} Прототип очков дополненной реальности}} \faGithub
+\hfill \textcolor{secondary}{С++, Fusion 360}
+\begin{itemize}
+\item Рабочий функциональный прототип очков дополненной реальности. В данной реализации используются как очки-телесуфлеры. 
+\item Очки-суфлёры — устройство, которое позволяет читать заготовленный текст. Текст проецируется на полупрозрачное зеркало и становится доступным для прочтения только для пользователя. 
+\item Это решает проблему мобильности студийных телесуфлеров.
+
+\end{itemize}
+
+\vspace{1.25em}
+
+\href{https://github.com/HaipoviyPodrostok/Akinator} {\textbf{\color{primary} Игра <<Акинатор>>}} \faGithub
+\hfill \textcolor{secondary}{C, Make}
+\begin{itemize}
+\item Консольная реализация игры, в которой программа пытается угадать задуманного персонажа. 
+\item Проект использует бинарное дерево для хранения базы знаний. Динамическое обучение происходит прямо во время игры.
+\end{itemize}
+
+\vspace{1.25em}
+
+\href{https://github.com/HaipoviyPodrostok/LIDAR} {\textbf{\color{primary} Обработка данных LIDAR}} \faGithub
+\hfill \textcolor{secondary}{C++, Math Modeling, PCA}
+\begin{itemize}
+\item Обработка данных промышленного LiDAR-сканера для определения высоты загрузки кузова грузовика.
+\item Разработка алгоритма для аппроксимации поверхности кузова грузовика плоскостью, устойчивого к тяжелым погодным условиям
+\item Программа аппроксимирует плоскость дна кузова алгоритмом RANSAC с МНК-уточнением и генерирует карту отклонений (heatmap), визуализирующую инлайеры (дно) и выбросы (снег, пыль, груз).
 \end{itemize}
 
 \end{document}
